@@ -60,4 +60,8 @@ Note: Actions related to Objects require `Resource` to end with `/*` for the res
 
 # Commands
 * `cp -r ../udagram-api/. .`
-* 
+* `grep --exclude-dir=node_modules -nrw . -e mock`
+
+
+http://localhost:8080/api/v0/users/flore.vlad@gmail.com
+http://localhost:8081/api/v0/feed
