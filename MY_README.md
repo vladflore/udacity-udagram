@@ -58,3 +58,6 @@ Note: Actions related to Objects require `Resource` to end with `/*` for the res
 * exit with: `\quit`
 * **???** `CIDR/IP - Inbound rule for 0.0.0.0/0 do I need this when the instance is already publicly available`
 
+# Commands
+* `cp -r ../udagram-api/. .`
+* 
