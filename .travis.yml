@@ -1,0 +1,16 @@
+
+language: node_js
+node_js:
+  - 13
+
+services:
+  - docker
+
+script:
+  - cd udagram-frontend
+  - docker build -t udagram-frontend .
+  - docker tag udagram-frontend:latest vladflore/udagram-frontend:latest
+
+after_success:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker push vladflore/udagram-frontend:latest

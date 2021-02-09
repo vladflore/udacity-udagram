@@ -1,5 +1,5 @@
 # Steps
-1. create an S3 Bucket and set permissions
+### 1. create an S3 Bucket and set permissions
 * create the bucket policy:
 ```json
 {
@@ -48,7 +48,7 @@ Note: Actions related to Objects require `Resource` to end with `/*` for the res
 ]
 ```
 
-2. create RDS instance
+### 2. create RDS instance
 * make it publicly available to connect to it from outside
 * connect via: `psql -h udagram.c0cjyfnrsyhu.eu-central-1.rds.amazonaws.com -U postgres postgres`
 * inside postgres:
@@ -58,10 +58,22 @@ Note: Actions related to Objects require `Resource` to end with `/*` for the res
 * exit with: `\quit`
 * **???** `CIDR/IP - Inbound rule for 0.0.0.0/0 do I need this when the instance is already publicly available`
 
+### 3. set the environment variables
+They allow to connect to S3 and RDS (either from the localhost or from withint the AWS)
+
+### 4. create Dockerfile for the frontend application
+
+Backend APIs links (after the respective node apps have been started):
+* http://localhost:8080/api/v0/users/flore.vlad@gmail.com
+* http://localhost:8081/api/v0/feed
+
 # Commands
 * `cp -r ../udagram-api/. .`
 * `grep --exclude-dir=node_modules -nrw . -e mock`
-
-
-http://localhost:8080/api/v0/users/flore.vlad@gmail.com
-http://localhost:8081/api/v0/feed
+* `docker build -t udagram-frontend .`
+* `docker run --rm -d --name udagram-frontend -p 8080:80 udagram-frontend:latest`
+* `docker container stop udagram-frontend`
+* `docker exec -it <container-id> /bin/sh`
+* `pwd | xclip -selection clipboard`
+* `docker images | grep none | tr -s ' ' | cut -d ' ' -f 3 | xargs docker image rm`
+* `docker tag udagram-frontend:latest vladflore/udagram-frontend:latest`
