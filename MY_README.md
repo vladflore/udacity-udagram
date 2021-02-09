@@ -75,5 +75,6 @@ Backend APIs links (after the respective node apps have been started):
 * `docker container stop udagram-frontend`
 * `docker exec -it <container-id> /bin/sh`
 * `pwd | xclip -selection clipboard`
-* `docker images | grep none | tr -s ' ' | cut -d ' ' -f 3 | xargs docker image rm`
+* `docker images | grep none | tr -s ' ' | cut -d ' ' -f 3 | xargs docker image rm -f`
 * `docker tag udagram-frontend:latest vladflore/udagram-frontend:latest`
+* `docker inspect <image-id>`
