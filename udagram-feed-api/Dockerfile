@@ -1,0 +1,23 @@
+FROM node:13
+
+ARG POSTGRES_USERNAME
+ARG POSTGRES_PASSWORD
+ARG POSTGRES_HOST
+ARG POSTGRES_DB
+ARG AWS_BUCKET
+ARG AWS_REGION
+ARG AWS_PROFILE
+ARG JWT_SECRET
+ARG URL
+
+ENV POSTGRES_USERNAME=${POSTGRES_USERNAME} POSTGRES_PASSWORD=${POSTGRES_PASSWORD} POSTGRES_HOST=${POSTGRES_HOST} POSTGRES_DB=${POSTGRES_DB} AWS_BUCKET=${AWS_BUCKET} AWS_REGION=${AWS_REGION} AWS_PROFILE=${AWS_PROFILE} JWT_SECRET=${JWT_SECRET} URL=${URL}
+
+ADD package*.json /tmp/
+RUN cd /tmp && npm install
+RUN mkdir -p /opt/app && cp -a /tmp/node_modules /opt/app/
+WORKDIR /opt/app
+# add content of root project excluding whatever is listed in .dockerignore
+ADD . ./
+RUN npm run build
+EXPOSE 8080
+CMD [ "npm", "run", "prod" ]
