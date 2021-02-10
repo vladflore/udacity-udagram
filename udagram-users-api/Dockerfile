@@ -12,9 +12,12 @@ ARG URL
 
 ENV POSTGRES_USERNAME=${POSTGRES_USERNAME} POSTGRES_PASSWORD=${POSTGRES_PASSWORD} POSTGRES_HOST=${POSTGRES_HOST} POSTGRES_DB=${POSTGRES_DB} AWS_BUCKET=${AWS_BUCKET} AWS_REGION=${AWS_REGION} AWS_PROFILE=${AWS_PROFILE} JWT_SECRET=${JWT_SECRET} URL=${URL}
 
-WORKDIR /app
-COPY . ./
-RUN npm ci
+ADD package*.json /tmp/
+RUN cd /tmp && npm install
+RUN mkdir -p /opt/app && cp -a /tmp/node_modules /opt/app/
+WORKDIR /opt/app
+# add content of root project excluding whatever is listed in .dockerignore
+ADD . ./
 RUN npm run build
 EXPOSE 8080
-CMD ["node", "server.js"]
+CMD [ "npm", "run", "prod" ]

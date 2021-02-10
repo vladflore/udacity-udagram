@@ -104,4 +104,4 @@ dist
 .tern-port
 
 set_env.sh
-env.txt
+env

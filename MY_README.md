@@ -78,3 +78,5 @@ Backend APIs links (after the respective node apps have been started):
 * `docker images | grep none | tr -s ' ' | cut -d ' ' -f 3 | xargs docker image rm -f`
 * `docker tag udagram-frontend:latest vladflore/udagram-frontend:latest`
 * `docker inspect <image-id>`
+* `docker run --rm -d --name udagram-users-api --env-file ../env -p 8080:80 udagram-users-api:latest`
+* 
