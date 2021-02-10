@@ -71,7 +71,7 @@ Backend APIs links (after the respective node apps have been started):
 * `cp -r ../udagram-api/. .`
 * `grep --exclude-dir=node_modules -nrw . -e mock`
 * `docker build -t udagram-frontend .`
-* `docker run --rm -d --name udagram-frontend -p 8080:80 udagram-frontend:latest`
+* `docker run --rm -d --name udagram-frontend -p 8100:80 udagram-frontend:latest`
 * `docker container stop udagram-frontend`
 * `docker exec -it <container-id> /bin/sh`
 * `pwd | xclip -selection clipboard`

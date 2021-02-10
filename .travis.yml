@@ -9,16 +9,20 @@ services:
 script:
   - cd udagram-frontend
   - docker build -t udagram-frontend .
-  - docker tag udagram-frontend:latest vladflore/udagram-frontend:latest
+  - docker tag udagram-frontend vladflore/udagram-frontend:latest
   - cd ../udagram-users-api
   - docker build -t udagram-users-api --build-arg POSTGRES_USERNAME=${POSTGRES_USERNAME} --build-arg POSTGRES_PASSWORD=${POSTGRES_PASSWORD} --build-arg POSTGRES_HOST=${POSTGRES_HOST} --build-arg POSTGRES_DB=${POSTGRES_DB} --build-arg AWS_BUCKET=${AWS_BUCKET} --build-arg AWS_REGION=${AWS_REGION} --build-arg AWS_PROFILE=${AWS_PROFILE} --build-arg JWT_SECRET=${JWT_SECRET} --build-arg URL=${URL} .
   - docker tag udagram-users-api vladflore/udagram-users-api:latest
   - cd ../udagram-feed-api
   - docker build -t udagram-feed-api --build-arg POSTGRES_USERNAME=${POSTGRES_USERNAME} --build-arg POSTGRES_PASSWORD=${POSTGRES_PASSWORD} --build-arg POSTGRES_HOST=${POSTGRES_HOST} --build-arg POSTGRES_DB=${POSTGRES_DB} --build-arg AWS_BUCKET=${AWS_BUCKET} --build-arg AWS_REGION=${AWS_REGION} --build-arg AWS_PROFILE=${AWS_PROFILE} --build-arg JWT_SECRET=${JWT_SECRET} --build-arg URL=${URL} .
   - docker tag udagram-feed-api vladflore/udagram-feed-api:latest
+  - cd ../udagram-reverse-proxy
+  - docker build -t udagram-reverse-proxy .
+  - docker tag udagram-reverse-proxy:latest vladflore/udagram-reverse-proxy
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker push vladflore/udagram-frontend:latest
   - docker push vladflore/udagram-users-api:latest
   - docker push vladflore/udagram-feed-api:latest
+  - docker push vladflore/udagram-reverse-proxy
