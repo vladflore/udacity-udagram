@@ -61,7 +61,35 @@ Note: Actions related to Objects require `Resource` to end with `/*` for the res
 ### 3. set the environment variables
 They allow to connect to S3 and RDS (either from the localhost or from withint the AWS)
 
-### 4. create Dockerfile for the frontend application
+### 4. create Dockerfile for the frontend application, /users and /feed apis and reverse-proxy
+* add them to travis for CI process
+
+### 5. create deployment and service yaml files
+* frontend
+* users api
+* feed api
+* reverse-proxy
+
+### 6. create AWS EKS
+
+### 7. Deploy to AWS EKS
+* connect to the udagram-cluster by running command:
+  
+  `aws eks update-kubeconfig --region eu-central-1 --name udagram-cluster`
+
+  `kubectl config view`
+* deploy
+  
+ ``` 
+ kubectl apply -f udagram-frontend/deployment.yaml 
+ kubectl apply -f udagram-frontend/service.yaml 
+ kubectl apply -f udagram-users-api/deployment.yaml 
+ kubectl apply -f udagram-users-api/service.yaml 
+ kubectl apply -f udagram-feed-api/deployment.yaml 
+ kubectl apply -f udagram-feed-api/service.yaml 
+ kubectl apply -f udagram-reverse-proxy/deployment.yaml 
+ kubectl apply -f udagram-reverse-proxy/service.yaml 
+```
 
 Backend APIs links (after the respective node apps have been started):
 * http://localhost:8080/api/v0/users/flore.vlad@gmail.com
@@ -80,3 +108,9 @@ Backend APIs links (after the respective node apps have been started):
 * `docker inspect <image-id>`
 * `docker run --rm -d --name udagram-users-api --env-file ../env -p 8080:80 udagram-users-api:latest`
 * `docker container ls -a | tr -s ' ' | cut -d ' ' -f 1 | xargs docker container rm`
+* `kubectl describe pod <pod-name>`
+* `kubectl get node -o yaml | grep pods`
+* `kubectl exec udagram-feed-deployment-587c6546db-fsgkn -- /bin/bash`
+* `kubectl get pod -o wide`
+* `kubectl delete -f udagram-feed-api/deployment.yaml`
+* `kubectl logs udagram-feed-deployment-587c6546db-q669n`
