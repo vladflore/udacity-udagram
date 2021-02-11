@@ -114,3 +114,4 @@ Backend APIs links (after the respective node apps have been started):
 * `kubectl get pod -o wide`
 * `kubectl delete -f udagram-feed-api/deployment.yaml`
 * `kubectl logs udagram-feed-deployment-587c6546db-q669n`
+* `kubectl autoscale deployment udagram-frontend-deployment --cpu-percent=50 --min=1 --max=2`
