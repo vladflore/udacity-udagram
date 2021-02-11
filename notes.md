@@ -129,3 +129,9 @@ Backend APIs links (after the respective node apps have been started):
 * `kubectl logs udagram-feed-deployment-587c6546db-q669n`
 * `kubectl autoscale deployment udagram-frontend-deployment --cpu-percent=50 --min=1 --max=2`
 * `while sleep 0.01; do wget -q -O- http://udagram-feed-service:8080/api/v0/feed; done`
+
+frontend:
+http://ab6d2ef00e8374e41be2fa87b689f2ec-1126592616.eu-central-1.elb.amazonaws.com
+
+reverse-proxy:
+http://ab46e7760db0f49efa63ec97028b7c24-781629319.eu-central-1.elb.amazonaws.com
