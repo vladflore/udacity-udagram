@@ -79,7 +79,6 @@ They allow to connect to S3 and RDS (either from the localhost or from withint t
 
   `kubectl config view`
 * deploy
-  
  ``` 
  kubectl apply -f udagram-frontend/deployment.yaml 
  kubectl apply -f udagram-frontend/service.yaml 
@@ -90,6 +89,20 @@ They allow to connect to S3 and RDS (either from the localhost or from withint t
  kubectl apply -f udagram-reverse-proxy/deployment.yaml 
  kubectl apply -f udagram-reverse-proxy/service.yaml 
 ```
+
+### 8. Changes after review from Udacity
+* Fix the Horizontal Pod Autoscaler
+  
+  https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/
+
+  https://github.com/kubernetes-sigs/metrics-server#deployment
+  
+  `kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml`
+
+* Change the type of the endpoints for the frontend and load balancer to load balancer
+
+    see https://knowledge.udacity.com/questions/345075
+
 
 Backend APIs links (after the respective node apps have been started):
 * http://localhost:8080/api/v0/users/flore.vlad@gmail.com
@@ -115,3 +128,4 @@ Backend APIs links (after the respective node apps have been started):
 * `kubectl delete -f udagram-feed-api/deployment.yaml`
 * `kubectl logs udagram-feed-deployment-587c6546db-q669n`
 * `kubectl autoscale deployment udagram-frontend-deployment --cpu-percent=50 --min=1 --max=2`
+* `while sleep 0.01; do wget -q -O- http://udagram-feed-service:8080/api/v0/feed; done`

@@ -21,3 +21,10 @@ spec:
         ports:
         - containerPort: 8080
       # restartPolicy: Always => by default
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "1024Mi"
+            cpu: "500m"
