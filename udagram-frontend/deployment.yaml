@@ -19,7 +19,7 @@ spec:
         image: vladflore/udagram-frontend:latest
         # imagePullPolicy: Always => by default
         ports:
-        - containerPort: 8080
+        - containerPort: 80
       # restartPolicy: Always => by default
         resources:
           requests:
