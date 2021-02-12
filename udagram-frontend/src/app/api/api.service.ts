@@ -19,7 +19,7 @@ export class ApiService {
   }
   
   static handleError(error: Error) {
-    console.log(`using ${environment}`);
+    console.log('using',environment);
     alert(error.message);
   }
 
