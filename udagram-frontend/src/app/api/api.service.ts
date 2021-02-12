@@ -16,10 +16,10 @@ export class ApiService {
   token: string;
 
   constructor(private http: HttpClient) {
-    console.log(`using ${environment}`);
   }
-
+  
   static handleError(error: Error) {
+    console.log(`using ${environment}`);
     alert(error.message);
   }
 
