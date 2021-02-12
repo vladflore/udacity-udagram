@@ -129,3 +129,7 @@ Backend APIs links (after the respective node apps have been started):
 * `kubectl logs udagram-feed-deployment-587c6546db-q669n`
 * `kubectl autoscale deployment udagram-frontend-deployment --cpu-percent=50 --min=1 --max=2`
 * `while sleep 0.01; do wget -q -O- http://udagram-feed-service:8080/api/v0/feed; done`
+
+
+### Other links:
+* https://stackoverflow.com/questions/49981601/difference-between-targetport-and-port-in-kubernetes-service-definition
