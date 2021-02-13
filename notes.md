@@ -140,3 +140,4 @@ Backend APIs links (after the respective node apps have been started):
 * https://stackoverflow.com/questions/49981601/difference-between-targetport-and-port-in-kubernetes-service-definition
 * https://microservices.io/patterns/microservices.html
 * https://docs.docker.com/develop/develop-images/dockerfile_best-practices/
+* https://ionicframework.com/docs/troubleshooting/cors
