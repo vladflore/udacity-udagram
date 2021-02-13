@@ -131,5 +131,12 @@ Backend APIs links (after the respective node apps have been started):
 * `while sleep 0.01; do wget -q -O- http://udagram-feed-service:8080/api/v0/feed; done`
 
 
+### Extra
+* In addition to pushing the images, you could also configure travis so you push the latest changes also to the cluster. For that you need to include the kubeconfig, so the context is set to the cluster and your AWS credentials.
+* 
+
+
 ### Other links:
 * https://stackoverflow.com/questions/49981601/difference-between-targetport-and-port-in-kubernetes-service-definition
+* https://microservices.io/patterns/microservices.html
+* https://docs.docker.com/develop/develop-images/dockerfile_best-practices/
