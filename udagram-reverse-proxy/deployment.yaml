@@ -19,5 +19,5 @@ spec:
         image: vladflore/udagram-reverse-proxy:latest
         # imagePullPolicy: Always => by default
         ports:
-        - containerPort: 80
+        - containerPort: 8080
       # restartPolicy: Always => by default
