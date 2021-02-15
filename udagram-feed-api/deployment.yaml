@@ -22,10 +22,16 @@ spec:
         - containerPort: 8080
       # restartPolicy: Always => by default
         volumeMounts:
-        - name: aws-secret
+        - name: aws-credentials-volume
           mountPath: "/root/.aws/"
           readOnly: true
+        - name: env-secret-volume
+          mountPath: "/root/.config/"
+          readOnly: true
       volumes:
-      - name: aws-secret
+      - name: aws-credentials-volume
         secret:
-          secretName: aws-secret
+          secretName: aws-credentials-secret
+      - name: env-secret-volume
+        secret:
+          secretName: env-secret

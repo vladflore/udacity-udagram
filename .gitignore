@@ -105,4 +105,5 @@ dist
 
 set_env.sh
 env
-aws-secret.yaml
+env-secret.yaml
+aws-credentials-secret.yaml

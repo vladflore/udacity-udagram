@@ -129,6 +129,16 @@ Backend APIs links (after the respective node apps have been started):
 * `kubectl logs udagram-feed-deployment-587c6546db-q669n`
 * `kubectl autoscale deployment udagram-frontend-deployment --cpu-percent=50 --min=1 --max=2`
 * `while sleep 0.01; do wget -q -O- http://udagram-feed-service:8080/api/v0/feed; done`
+* `echo "  POSTGRES_USERNAME="`echo -n postgres | base64` >> env-secret.yaml` 
+* `echo "  POSTGRES_USERNAME="`echo -n postgres | base64` >> env-secret.yaml` 
+* `echo "  POSTGRES_PASSWORD="`echo -n welcome1 | base64` >> env-secret.yaml` 
+* `echo "  POSTGRES_HOST="`echo -n udagram.c0cjyfnrsyhu.eu-central-1.rds.amazonaws.com | base64` >> env-secret.yaml` 
+* `echo "  POSTGRES_DB="`echo -n postgres | base64` >> env-secret.yaml` 
+* `echo "  AWS_BUCKET="`echo -n udagram-764533981594-dev | base64` >> env-secret.yaml` 
+* `echo "  AWS_REGION="`echo -n eu-central-1 | base64` >> env-secret.yaml` 
+* `echo "  AWS_PROFILE="`echo -n default | base64` >> env-secret.yaml` 
+* `echo "  JWT_SECRET="`echo -n hello | base64` >> env-secret.yaml` 
+* `echo "  URL="`echo -n http://ad4192cb754d0444db92c4224136f4df-179369877.eu-central-1.elb.amazonaws.com:8080 | base64` >> env-secret.yaml` 
 
 
 ### Extra

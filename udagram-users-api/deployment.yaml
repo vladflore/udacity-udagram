@@ -25,7 +25,13 @@ spec:
         - name: aws-secret
           mountPath: "/root/.aws/"
           readOnly: true
+        - name: env-secret-volume
+          mountPath: "/root/.config/"
+          readOnly: true
       volumes:
       - name: aws-secret
         secret:
           secretName: aws-secret
+      - name: env-secret-volume
+        secret:
+          secretName: env-secret
