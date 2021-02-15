@@ -141,3 +141,5 @@ Backend APIs links (after the respective node apps have been started):
 * https://microservices.io/patterns/microservices.html
 * https://docs.docker.com/develop/develop-images/dockerfile_best-practices/
 * https://ionicframework.com/docs/troubleshooting/cors
+* https://kubernetes.io/docs/concepts/configuration/configmap/
+* https://kubernetes.io/docs/concepts/configuration/secret/
