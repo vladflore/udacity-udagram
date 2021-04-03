@@ -107,3 +107,4 @@ set_env.sh
 env
 env-secret.yaml
 aws-credentials-secret.yaml
+.idea
